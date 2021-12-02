@@ -1,2 +1,7 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/image">
+        <file>logo/FLIR.png</file>
+        <file>logo/FLIR_white.png</file>
+        <file>logo/change.png</file>
+    </qresource>
+</RCC>

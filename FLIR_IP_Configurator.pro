@@ -21,20 +21,39 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp
+        source/main.cpp \
+        source/mainwindow.cpp \
+        framelesswindow/framelesswindow.cpp \
+        framelesswindow/windowdragger.cpp \
+        source/camera_manage.cpp \
+        source/DarkStyle.cpp
 
 HEADERS += \
-        mainwindow.h
+        header/camera_interface.h \
+        header/camera_manage.h \
+        header/mainwindow.h \
+        header/DarkStyle.h \
+        framelesswindow/framelesswindow.h \
+        framelesswindow/windowdragger.h
 
 FORMS += \
-        mainwindow.ui
+        ui/mainwindow.ui \
+        framelesswindow/framelesswindow.ui
+
+RESOURCES += \
+    resources/framelesswindow.qrc \
+    resources/darkstyle.qrc \
+    resources/image.qrc
+
+#Library for spinnaker SDK
+INCLUDEPATH += /opt/spinnaker/include
+LIBS += -L/opt/spinnaker/lib -lSpinnaker
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
